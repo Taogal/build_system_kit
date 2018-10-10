@@ -22,7 +22,6 @@ Problems:
     ./kconfig/lxdialog/check-lxdialog.sh -ccflags
      
     apt-get update
-    apt-get install 
     apt-get install libncurses5-dev
    
 

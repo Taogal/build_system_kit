@@ -1,0 +1,42 @@
+#
+# For a description of the syntax of this configuration file,
+# see kconfig/kconfig-language.txt.
+#
+mainmenu "Build System Kit Framework Configuration"
+ 
+choice TARGET_PLATFORM
+   bool "Target platform choose"
+   default TARGET_PLATFORM_X86
+   help
+       Choose the specific target platform which you will use.
+
+config TARGET_PLATFORM_X86
+   bool "x86"
+config TARGET_PLATFORM_ARM
+   bool "arm"
+config TARGET_PLATFORM_MIPS
+   bool "mips"
+endchoice
+
+menu "SDK tool configuration"
+
+config TOOLPREFIX
+    string
+    default "" if TARGET_PLATFORM_X86
+    default "arm-linux-"  if TARGET_PLATFORM_ARM
+    default "mips-linux-" if TARGET_PLATFORM_MIPS
+    help
+        The prefix/path that is used to call the toolchain. The default setting assumes
+        a crosstool-ng gcc setup that is in your PATH.
+        
+config BUILD_SYSTEM_VERSION
+    string
+    default "V0.0.1"
+    help
+    	Set the build system version when you update.
+       
+endmenu  # SDK tool configuration
+
+menu "Component config"
+source "$COMPONENT_KCONFIGS"
+endmenu

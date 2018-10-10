@@ -1,0 +1,10 @@
+README
+
+The SDK uses 'make' of Build System Kit, and changed things are following:
+
+1. remove the "toolchain" warning in file project.mk at line 543
+
+Information of Build System Kit is following:
+
+commit: 
+

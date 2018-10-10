@@ -1,0 +1,18 @@
+#
+# Component Makefile
+#
+ifdef CONFIG_LIB_cJSON
+
+COMPONENT_ADD_INCLUDEDIRS += cJSON
+
+COMPONENT_SRCDIRS := cJSON
+
+# Check the submodule is initialised
+COMPONENT_SUBMODULES := 
+
+else
+# Disable cJSON support
+COMPONENT_ADD_INCLUDEDIRS :=
+COMPONENT_ADD_LDFLAGS :=
+COMPONENT_SRCDIRS :=
+endif

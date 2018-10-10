@@ -1,0 +1,8 @@
+#
+# For a description of the syntax of this configuration file,
+# see kconfig/kconfig-language.txt.
+#
+menuconfig LIB_cJSON
+    bool "cJSON lib"
+    help
+       Select this option to enable support for the cJSON lib.

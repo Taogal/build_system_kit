@@ -3,7 +3,7 @@ a build system kit embed from [esp-idf](https://github.com/espressif/esp-idf).
 
 
 
-##1¡¢How to use?
+##1.How to use?
     cd build_system_kit
     export $BSD_PATH= [pwd's result] #build_system_kit dir
     

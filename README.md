@@ -19,11 +19,13 @@ You can create you project like the $(BSD_PATH)/examples.
 Problems:
 
     make menuconfig cannot work:
+    apt-get update
+    apt-get install libncurses5-dev
+    
     cd ./tools
     ./kconfig/lxdialog/check-lxdialog.sh -ccflags
      
-    apt-get update
-    apt-get install libncurses5-dev
+
    
 
 The result for make menuconfig:

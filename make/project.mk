@@ -10,7 +10,7 @@
 # where this file is located.
 #
 
-.PHONY: build-components menuconfig defconfig all build clean check-submodules list-components
+.PHONY: build-components menuconfig defconfig all build clean distclean check-submodules list-components
 
 MAKECMDGOALS ?= all
 all: $(APP)
@@ -27,9 +27,9 @@ help:
 	@echo "make menuconfig - Configure BSD project"
 	@echo "make defconfig - Set defaults for all new configuration options"
 	@echo ""
-	@echo "make all - Build app, bootloader, partition table"
-	@echo "make clean - Remove all build output"
-	@echo "make simple_monitor - Monitor serial output on terminal console"
+	@echo "make all - Build app"
+	@echo "make clean - Remove include app-clean config-clean"
+	@echo "make distclean - Remove all build output"
 	@echo "make list-components - List all components in the project"
 	@echo ""
 	@echo "make app - Build just the app"
@@ -202,21 +202,6 @@ export COMPONENT_INCLUDES
 
 # Set variables common to both project & component
 include $(BSD_PATH)/make/common.mk
-
-all:
-ifdef CONFIG_SECURE_BOOT_ENABLED
-	@echo "(Secure boot enabled, so bootloader not flashed automatically. See 'make bootloader' output)"
-ifndef CONFIG_SECURE_BOOT_BUILD_SIGNED_BINARIES
-	@echo "App built but not signed. Sign app & partition data before flashing, via espsecure.py:"
-	@echo "espsecure.py sign_data --keyfile KEYFILE $(APP_BIN)"
-	@echo "espsecure.py sign_data --keyfile KEYFILE $(PARTITION_TABLE_BIN)"
-endif
-	@echo "To flash app & partition table, run 'make flash' or:"
-else
-	@echo "To flash all build output, run 'make flash' or:"
-endif
-	@echo $(ESPTOOLPY_WRITE_FLASH) $(ESPTOOL_ALL_FLASH_ARGS)
-
 
 # If we have `version.txt` then prefer that for extracting BSD version
 ifeq ("$(wildcard ${BSD_PATH}/version.txt)","")

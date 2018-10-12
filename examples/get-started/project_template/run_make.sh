@@ -21,6 +21,4 @@ echo "start..."
 echo ""
 
 make clean
-
-
 make app

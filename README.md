@@ -34,7 +34,7 @@ The result for make menuconfig:
 ## 2.How to create your own projects?
 The most minal project is created in the $(BSD_PATH)/examples/get-started dir called **project_template**.
 
-**Others:** when your project is more complex and need to link third lib,you can use the var **COMPONENT_ADD_LDFLAGS** to add **lib*.so** or **lib*.a.**
+**Others:** when your project is more complex and need to link third lib,you can use the var **COMPONENT_ADD_LDFLAGS** to add lib*.so or lib*.a
 
 **The following var is used to include your project to build in the build_system_kit:**
 

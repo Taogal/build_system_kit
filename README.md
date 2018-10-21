@@ -46,7 +46,7 @@ The most minal project is created in the $(BSD_PATH)/examples/get-started dir ca
 
 - COMPONENT_SRCDIRS: Directory paths, must be relative to the component directory, which will be searched for source files (*.cpp, *.c, *.S). Defaults to '.', ie the component directory itself. Override this to specify a different list of directories which contain source files.
 
-- CFLAGS: Include your project build flags.
+- CFLAGS: Include your project building flags.
 
 
 

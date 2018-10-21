@@ -230,7 +230,7 @@ LDFLAGS ?= $(EXTRA_LDFLAGS) \
 # If any flags are defined in application Makefile, add them at the end. 
 CPPFLAGS ?=
 EXTRA_CPPFLAGS ?=
-CPPFLAGS := -DESP_PLATFORM -D BSD_VER=\"$(BSD_VER)\" -MMD -MP $(CPPFLAGS) $(EXTRA_CPPFLAGS)
+CPPFLAGS := -D BSD_VER=\"$(BSD_VER)\" -MMD -MP $(CPPFLAGS) $(EXTRA_CPPFLAGS)
 
 # Warnings-related flags relevant both for C and C++
 COMMON_WARNING_FLAGS = -Wall -Werror=all \
@@ -280,14 +280,11 @@ DEBUG_FLAGS ?= -ggdb
 # List of flags to pass to C compiler
 # If any flags are defined in application Makefile, add them at the end.
 CFLAGS ?=
-EXTRA_CFLAGS ?=
 CFLAGS := $(strip \
 	-std=gnu99 \
 	$(DEBUG_FLAGS) \
 	$(COMMON_WARNING_FLAGS) \
-	$(CFLAGS) \
-	$(EXTRA_CFLAGS))
-
+	$(CFLAGS))
 # List of flags to pass to C++ compiler
 # If any flags are defined in application Makefile, add them at the end.
 CXXFLAGS ?=
